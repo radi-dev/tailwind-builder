@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./tailwind.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/tiny-markdown-editor/dist/tiny-mde.min.css"
+    />
+    <!-- <link rel="stylesheet" href="./input.css" /> -->
+  </head>
+  <body>
+    <!-- This is an example component -->
+    <div class="max-w-2xl mx-auto mt-10">
+      <div class="page-title">
+        <h1>Markdown Generator</h1>
+        <p class="lead">Generate your markdown with Go</p>
+        <hr />
+      </div>
+      <form action="/markdown" method="POST">
+        <div
+          class="mb-4 w-full bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600"
+        >
+          <div id="toolbar-md"></div>
+
+          <div class="py-2 px-4 bg-white rounded-b-lg dark:bg-gray-800">
+            <label for="editor-md" class="sr-only">Publish post</label>
+            <textarea
+              id="editor-md"
+              name="form-body"
+              rows="8"
+              class="block px-0 w-full text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+              placeholder="Write an article..."
+              required
+            ></textarea>
+          </div>
+        </div>
+        <input
+          type="submit"
+          class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+        />
+      </form>
+    </div>
+    <script src="https://unpkg.com/tiny-markdown-editor/dist/tiny-mde.min.js"></script>
+    <script type="text/javascript">
+      var tinyMDE = new TinyMDE.Editor({ textarea: "editor-md" });
+      var commandBar = new TinyMDE.CommandBar({
+        element: "toolbar-md",
+        editor: tinyMDE,
+      });
+    </script>
+  </body>
+</html>
